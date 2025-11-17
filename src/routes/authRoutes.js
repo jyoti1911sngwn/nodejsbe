@@ -33,15 +33,18 @@ router.post('/register', async(req, res) => {
   res.sendStatus(201)
 })
 
-router.post('/login', (req, res) => {
+router.post('/login', async(req, res) => {
   //password stored in db by brcrypt is always in encrypted form 
   //so we cant directly match the pass enetered by th euser 
   //we will encrypt the password enetered by user and then match it
   
   const {username, password} = req.body
   try{
-    const getUser = db.prepare(`SELECT * FROM users WHERE username = ?`)
-    const user = getUser.get(username)
+    const user = await prisma.user.findUnique({
+      where:{
+        username : username
+      }
+    })
     if(!user){
       return res.status(404).send({message: 'User Not Found!'})
     }
@@ -57,8 +60,6 @@ router.post('/login', (req, res) => {
     console.log(err.message)
     res.sendStatus(503)
   }
-  console.log(username, password)
-  res.send("Login route working")
 })
 
 export default router
