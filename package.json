@@ -1,0 +1,20 @@
+{
+  "name": "nodejsbe",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/jyoti1911sngwn/nodejsbe#readme",
+  "bugs": {
+    "url": "https://github.com/jyoti1911sngwn/nodejsbe/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jyoti1911sngwn/nodejsbe.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
